@@ -1,0 +1,249 @@
+.quill-emoji-editor {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", "Microsoft YaHei", sans-serif;
+}
+
+.editor-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.editor {
+  min-height: 300px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.editor:focus-within {
+  border-color: #0066cc;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+/* QuillJS工具栏样式自定义 */
+.ql-toolbar {
+  border: none;
+  border-bottom: 2px solid #e1e5e9;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0 0;
+}
+
+.ql-toolbar .ql-formats {
+  margin-right: 15px;
+}
+
+.ql-container {
+  border: none;
+  border-radius: 0 0 8px 8px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Emoji选择器容器 */
+.emoji-picker-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.emoji-picker-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.emoji-picker {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e1e5e9;
+  margin-top: 8px;
+  z-index: 1001;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .emoji-picker {
+    margin: 8px;
+    max-width: calc(100% - 16px);
+  }
+}
+
+/* 编辑器操作按钮 */
+.editor-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.clear-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.clear-btn:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+.get-content-btn {
+  background: #28a745;
+  color: white;
+}
+
+.get-content-btn:hover {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+.emoji-btn {
+  background: #ffc107;
+  color: #000;
+}
+
+.emoji-btn:hover {
+  background: #e0a800;
+  transform: translateY(-1px);
+}
+
+/* 内容预览区域 */
+.content-preview {
+  background: #f8f9fa;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.content-preview h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 18px;
+  border-bottom: 2px solid #0066cc;
+  padding-bottom: 8px;
+}
+
+.preview-content {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 16px;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+.preview-content em {
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* QuillJS编辑器内容样式 */
+.ql-editor {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3 {
+  margin: 20px 0 15px 0;
+}
+
+.ql-editor p {
+  margin: 10px 0;
+}
+
+.ql-editor ul,
+.ql-editor ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+.ql-editor li {
+  margin: 8px 0;
+}
+
+/* 自定义emoji按钮样式 */
+.ql-toolbar button.ql-emoji {
+  width: auto;
+  padding: 4px 8px;
+  font-size: 16px;
+}
+
+.ql-toolbar button.ql-emoji:hover {
+  background: #e6f3ff;
+  border-radius: 4px;
+}
+
+/* emoji-mart组件的自定义样式 */
+.emoji-picker em-emoji-picker {
+  --rgb-accent: 0, 102, 204;
+  --rgb-background: 255, 255, 255;
+  --rgb-input: 255, 255, 255;
+  --border-radius: 8px;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .quill-emoji-editor {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .editor-actions {
+    flex-direction: column;
+  }
+
+  .action-btn {
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+
+  .ql-toolbar {
+    padding: 8px 12px;
+  }
+
+  .ql-toolbar .ql-formats {
+    margin-right: 10px;
+    margin-bottom: 8px;
+  }
+
+  .content-preview {
+    padding: 15px;
+  }
+
+  .preview-content {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

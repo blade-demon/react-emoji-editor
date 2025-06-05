@@ -1,0 +1,33 @@
+{
+  "name": "quilljs-emoji-demo",
+  "version": "1.0.0",
+  "description": "React + QuillJS + Emoji 富文本编辑器示例",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "quill": "^1.3.7",
+    "@emoji-mart/react": "^1.1.1",
+    "@emoji-mart/data": "^1.1.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^4.4.0"
+  },
+  "keywords": [
+    "react",
+    "quilljs",
+    "emoji",
+    "富文本编辑器"
+  ],
+  "author": "",
+  "license": "MIT"
+}
