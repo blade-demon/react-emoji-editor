@@ -1,0 +1,19 @@
+.test-component {
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  color: white;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.test-component h3 {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.test-component p {
+  margin-bottom: 0;
+  opacity: 0.9;
+}

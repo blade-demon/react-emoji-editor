@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { ConfigProvider, Button, Space } from "antd";
-import zhCN from "antd/locale/zh_CN";
+import zhCN from "antd/es/locale/zh_CN";
 import { ExperimentOutlined, FileTextOutlined } from "@ant-design/icons";
 import ArticleForm from "./components/ArticleForm";
 import EditorExamples from "./components/EditorExamples";
+import TestComponent from "./components/TestComponent";
 import "./App.css";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         </header>
 
         <main className="app-main">
+          <TestComponent />
           {currentView === "article" ? <ArticleForm /> : <EditorExamples />}
         </main>
       </div>

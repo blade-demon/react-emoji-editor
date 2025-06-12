@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import Quill from "quill";
 import "quill/dist/quill.snow.css";
-import data from "@emoji-mart/data";
-import Picker from "@emoji-mart/react";
+import { Picker } from "emoji-mart";
+import "emoji-mart/css/emoji-mart.css";
 import "./QuillEmojiEditor.css";
 
 // 使用回调函数模式暴露内部方法
@@ -162,12 +162,28 @@ const QuillEmojiEditorCallback = ({
             />
             <div className="emoji-picker">
               <Picker
-                data={data}
-                onEmojiSelect={handleEmojiSelect}
+                onSelect={handleEmojiSelect}
                 theme="light"
-                locale="zh"
-                previewPosition="none"
-                skinTonePosition="none"
+                i18n={{
+                  search: "搜索",
+                  clear: "清除",
+                  notfound: "未找到表情",
+                  skintext: "选择肤色",
+                  categories: {
+                    search: "搜索结果",
+                    recent: "最近使用",
+                    people: "人物",
+                    nature: "自然",
+                    foods: "食物",
+                    activity: "活动",
+                    places: "地点",
+                    objects: "物体",
+                    symbols: "符号",
+                    flags: "旗帜",
+                  },
+                }}
+                showPreview={false}
+                showSkinTones={false}
               />
             </div>
           </div>

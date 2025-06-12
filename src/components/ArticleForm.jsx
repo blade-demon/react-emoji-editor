@@ -21,7 +21,6 @@ import {
 } from "@ant-design/icons";
 import axios from "axios";
 import QuillEmojiEditor from "./QuillEmojiEditor";
-import "./ArticleForm.css";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -66,9 +65,9 @@ const ArticleForm = () => {
 
       const submitData = {
         ...values,
-        content: editorContent?.html || "",
-        contentText: editorContent?.text || "",
-        contentDelta: editorContent?.delta || null,
+        content: editorContent?.html ?? "",
+        contentText: editorContent?.text ?? "",
+        contentDelta: editorContent?.delta ?? null,
         publishedAt: new Date().toISOString(),
       };
 
@@ -94,7 +93,7 @@ const ArticleForm = () => {
 
   const handlePreview = () => {
     const content = editorRef.current?.getContent();
-    setPreviewContent(content?.html || "");
+    setPreviewContent(content?.html ?? "");
     setPreviewVisible(true);
   };
 
@@ -111,7 +110,7 @@ const ArticleForm = () => {
 
       const draftData = {
         ...values,
-        content: editorContent?.html || "",
+        content: editorContent?.html ?? "",
         status: "draft",
         savedAt: new Date().toISOString(),
       };
