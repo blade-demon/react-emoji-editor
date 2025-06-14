@@ -226,3 +226,77 @@
   margin: 2px;
   border-radius: 10px;
 }
+
+/* 微信联系人管理区域样式 */
+.wechat-contact-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.wechat-contact-card .ant-card-head {
+  background: linear-gradient(90deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.wechat-contact-card .ant-card-head-title {
+  color: #0066cc;
+  font-weight: 600;
+}
+
+.wechat-contact-row {
+  background: white;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+}
+
+.wechat-contact-row:hover {
+  border-color: #d9d9d9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.wechat-contact-label {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.wechat-remove-btn {
+  color: #ff4d4f;
+  border: none;
+  background: none;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.wechat-remove-btn:hover {
+  background: rgba(255, 77, 79, 0.1);
+  color: #ff4d4f;
+}
+
+.wechat-remove-btn:disabled {
+  color: #d9d9d9;
+  cursor: not-allowed;
+}
+
+.wechat-remove-btn:disabled:hover {
+  background: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .wechat-contact-row {
+    padding: 8px;
+  }
+
+  .wechat-contact-label {
+    font-size: 12px;
+    padding: 4px 0;
+  }
+}

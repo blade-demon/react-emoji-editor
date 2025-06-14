@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Form,
   Input,
@@ -12,12 +12,17 @@ import {
   Select,
   Row,
   Col,
+  Checkbox,
 } from "antd";
 import {
   SendOutlined,
   SaveOutlined,
   ClearOutlined,
   EyeOutlined,
+  PlusOutlined,
+  MinusOutlined,
+  EditOutlined,
+  SearchOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
 import QuillEmojiEditor from "./QuillEmojiEditor";
@@ -31,6 +36,40 @@ const ArticleForm = () => {
   const [previewVisible, setPreviewVisible] = useState(false);
   const [previewContent, setPreviewContent] = useState("");
   const editorRef = useRef(null);
+  const [wechatContacts, setWechatContacts] = useState([
+    { id: 1, name: "", qrCode: "", advanced: "" },
+  ]);
+  const [draftStatus, setDraftStatus] = useState(null); // 草稿状态
+
+  // 检查是否有草稿
+  const checkDraftStatus = () => {
+    const draft = localStorage.getItem("articleDraft");
+    if (draft) {
+      try {
+        const draftData = JSON.parse(draft);
+        setDraftStatus({
+          savedAt: draftData.savedAt,
+          autoSaved: draftData.autoSaved || false,
+        });
+      } catch (error) {
+        setDraftStatus(null);
+      }
+    } else {
+      setDraftStatus(null);
+    }
+  };
+
+  // 组件挂载时检查草稿状态
+  useEffect(() => {
+    checkDraftStatus();
+  }, []);
+
+  // 清除草稿
+  const clearDraft = () => {
+    localStorage.removeItem("articleDraft");
+    setDraftStatus(null);
+    message.success("草稿已清除！");
+  };
 
   // 模拟提交到服务器
   const submitToServer = async (data) => {
@@ -68,6 +107,7 @@ const ArticleForm = () => {
         content: editorContent?.html ?? "",
         contentText: editorContent?.text ?? "",
         contentDelta: editorContent?.delta ?? null,
+        wechatContacts: wechatContacts,
         publishedAt: new Date().toISOString(),
       };
 
@@ -77,9 +117,12 @@ const ArticleForm = () => {
 
       if (result.success) {
         message.success(result.message || "提交成功！");
-        // 清空表单
+        // 清空表单和微信联系人
         form.resetFields();
         editorRef.current?.clear();
+        setWechatContacts([{ id: 1, name: "", qrCode: "", advanced: "" }]);
+        // 清除草稿
+        clearDraft();
       } else {
         message.error(result.message || "提交失败！");
       }
@@ -100,24 +143,39 @@ const ArticleForm = () => {
   const handleClear = () => {
     form.resetFields();
     editorRef.current?.clear();
-    message.info("表单已清空");
+    setWechatContacts([{ id: 1, name: "", qrCode: "", advanced: "" }]);
+    clearDraft(); // 同时清除草稿
+    message.info("表单已清空（包含微信联系人数据）");
   };
 
   const handleSaveDraft = async () => {
     try {
-      const values = await form.validateFields();
+      const values = form.getFieldsValue(); // 使用 getFieldsValue 而不是 validateFields
       const editorContent = editorRef.current?.getContent();
+
+      // 合并表单数据和状态数据，确保微信联系人数据完整
+      const mergedWechatContacts = wechatContacts.map((contact) => {
+        const formData = values.wechatContacts?.[contact.id] || {};
+        return {
+          ...contact,
+          name: formData.name || contact.name || "",
+          qrCode: formData.qrCode || contact.qrCode || "",
+          advanced: formData.advanced || contact.advanced || "",
+        };
+      });
 
       const draftData = {
         ...values,
         content: editorContent?.html ?? "",
+        wechatContacts: mergedWechatContacts,
         status: "draft",
         savedAt: new Date().toISOString(),
       };
 
       // 保存到本地存储作为草稿
       localStorage.setItem("articleDraft", JSON.stringify(draftData));
-      message.success("草稿已保存到本地！");
+      setDraftStatus({ savedAt: draftData.savedAt, autoSaved: false });
+      message.success("草稿已保存到本地（包含微信联系人数据）！");
     } catch (error) {
       console.error("保存草稿失败：", error);
       message.error("保存草稿失败！");
@@ -130,6 +188,8 @@ const ArticleForm = () => {
       const draft = localStorage.getItem("articleDraft");
       if (draft) {
         const draftData = JSON.parse(draft);
+
+        // 恢复表单字段
         form.setFieldsValue({
           title: draftData.title,
           category: draftData.category,
@@ -137,16 +197,129 @@ const ArticleForm = () => {
           summary: draftData.summary,
         });
 
+        // 恢复编辑器内容
         if (draftData.content) {
           editorRef.current?.setContent(draftData.content);
         }
 
-        message.success("草稿已加载！");
+        // 恢复微信联系人数据
+        if (
+          draftData.wechatContacts &&
+          Array.isArray(draftData.wechatContacts)
+        ) {
+          setWechatContacts(draftData.wechatContacts);
+
+          // 同时恢复表单中的微信联系人字段值
+          const wechatFormData = { wechatContacts: {} };
+          draftData.wechatContacts.forEach((contact) => {
+            wechatFormData.wechatContacts[contact.id] = {
+              name: contact.name || "",
+              qrCode: contact.qrCode || "",
+              advanced: contact.advanced || "",
+            };
+          });
+          form.setFieldsValue(wechatFormData);
+
+          // 延迟确保表单字段正确设置
+          setTimeout(() => {
+            draftData.wechatContacts.forEach((contact) => {
+              form.setFieldValue(
+                ["wechatContacts", contact.id, "name"],
+                contact.name || ""
+              );
+              form.setFieldValue(
+                ["wechatContacts", contact.id, "qrCode"],
+                contact.qrCode || ""
+              );
+              form.setFieldValue(
+                ["wechatContacts", contact.id, "advanced"],
+                contact.advanced || ""
+              );
+            });
+          }, 100);
+        }
+
+        const saveType = draftData.autoSaved ? "自动保存" : "手动保存";
+        message.success(
+          `草稿已加载！（${saveType}时间：${new Date(
+            draftData.savedAt
+          ).toLocaleString()}）`
+        );
       } else {
         message.info("暂无草稿");
       }
     } catch (error) {
+      console.error("加载草稿失败：", error);
       message.error("加载草稿失败！");
+    }
+  };
+
+  // 添加微信联系人
+  const addWechatContact = () => {
+    const newId = Math.max(...wechatContacts.map((c) => c.id)) + 1;
+    setWechatContacts([
+      ...wechatContacts,
+      { id: newId, name: "", qrCode: "", advanced: "" },
+    ]);
+  };
+
+  // 删除微信联系人
+  const removeWechatContact = (id) => {
+    if (wechatContacts.length > 1) {
+      setWechatContacts(wechatContacts.filter((c) => c.id !== id));
+    }
+  };
+
+  // 更新微信联系人信息
+  const updateWechatContact = (id, field, value) => {
+    const updatedContacts = wechatContacts.map((c) =>
+      c.id === id ? { ...c, [field]: value } : c
+    );
+    setWechatContacts(updatedContacts);
+
+    // 同步更新表单字段值
+    form.setFieldValue(["wechatContacts", id, field], value);
+
+    // 可选：自动保存草稿（防抖处理）
+    clearTimeout(window.autoSaveTimer);
+    window.autoSaveTimer = setTimeout(() => {
+      handleAutoSaveDraft(updatedContacts);
+    }, 2000); // 2秒后自动保存
+  };
+
+  // 自动保存草稿（不显示成功消息，避免打扰用户）
+  const handleAutoSaveDraft = async (
+    currentWechatContacts = wechatContacts
+  ) => {
+    try {
+      const values = form.getFieldsValue();
+      const editorContent = editorRef.current?.getContent();
+
+      // 合并表单数据和状态数据，确保微信联系人数据完整
+      const mergedWechatContacts = currentWechatContacts.map((contact) => {
+        const formData = values.wechatContacts?.[contact.id] || {};
+        return {
+          ...contact,
+          name: formData.name || contact.name || "",
+          qrCode: formData.qrCode || contact.qrCode || "",
+          advanced: formData.advanced || contact.advanced || "",
+        };
+      });
+
+      const draftData = {
+        ...values,
+        content: editorContent?.html ?? "",
+        wechatContacts: mergedWechatContacts,
+        status: "draft",
+        savedAt: new Date().toISOString(),
+        autoSaved: true, // 标记为自动保存
+      };
+
+      localStorage.setItem("articleDraft", JSON.stringify(draftData));
+      setDraftStatus({ savedAt: draftData.savedAt, autoSaved: true });
+      console.log("草稿已自动保存", new Date().toLocaleString());
+    } catch (error) {
+      console.error("自动保存草稿失败：", error);
     }
   };
 
@@ -238,6 +411,132 @@ const ArticleForm = () => {
               maxLength={300}
             />
           </Form.Item>
+
+          {/* 新增：微信联系人管理区域 */}
+          <Card
+            title={
+              <Space>
+                <span>微信联系人管理</span>
+                {draftStatus && (
+                  <Tag
+                    color={draftStatus.autoSaved ? "blue" : "green"}
+                    size="small"
+                  >
+                    {draftStatus.autoSaved ? "自动保存" : "手动保存"}
+                    {new Date(draftStatus.savedAt).toLocaleTimeString()}
+                  </Tag>
+                )}
+              </Space>
+            }
+            size="small"
+            className="wechat-contact-card"
+            style={{ marginBottom: 24 }}
+            extra={
+              <Space>
+                <Button
+                  type="primary"
+                  size="small"
+                  icon={<PlusOutlined />}
+                  onClick={addWechatContact}
+                >
+                  添加
+                </Button>
+                <Button size="small">全部</Button>
+                <Button type="primary" size="small" icon={<SearchOutlined />}>
+                  高级搜索
+                </Button>
+                <Button size="small" icon={<EditOutlined />}>
+                  编辑
+                </Button>
+                {draftStatus && (
+                  <Button
+                    size="small"
+                    danger
+                    type="text"
+                    onClick={clearDraft}
+                    title="清除草稿"
+                  >
+                    清除草稿
+                  </Button>
+                )}
+              </Space>
+            }
+          >
+            {wechatContacts.map((contact, index) => (
+              <div key={contact.id} className="wechat-contact-row">
+                <Row gutter={16} align="middle">
+                  <Col xs={24} sm={1}>
+                    <Button
+                      type="text"
+                      danger
+                      size="small"
+                      icon={<MinusOutlined />}
+                      onClick={() => removeWechatContact(contact.id)}
+                      disabled={wechatContacts.length === 1}
+                      className="wechat-remove-btn"
+                    />
+                  </Col>
+                  <Col xs={24} sm={2}>
+                    <div className="wechat-contact-label">标签{index + 1}:</div>
+                  </Col>
+                  <Col xs={24} sm={6}>
+                    <Form.Item
+                      name={["wechatContacts", contact.id, "name"]}
+                      style={{ margin: 0 }}
+                    >
+                      <Input
+                        placeholder="添加微信输入一个人"
+                        value={contact.name}
+                        onChange={(e) =>
+                          updateWechatContact(
+                            contact.id,
+                            "name",
+                            e.target.value
+                          )
+                        }
+                      />
+                    </Form.Item>
+                  </Col>
+                  <Col xs={24} sm={2}>
+                    <div className="wechat-contact-label">标签2:</div>
+                  </Col>
+                  <Col xs={24} sm={6}>
+                    <Form.Item
+                      name={["wechatContacts", contact.id, "qrCode"]}
+                      style={{ margin: 0 }}
+                    >
+                      <Select
+                        placeholder="选择二维码"
+                        value={contact.qrCode}
+                        onChange={(value) =>
+                          updateWechatContact(contact.id, "qrCode", value)
+                        }
+                      >
+                        <Option value="personal">个人二维码</Option>
+                        <Option value="group">群聊二维码</Option>
+                        <Option value="business">商务二维码</Option>
+                        <Option value="official">公众号二维码</Option>
+                      </Select>
+                    </Form.Item>
+                  </Col>
+                  <Col xs={24} sm={2}>
+                    <div className="wechat-contact-label">标签3:</div>
+                  </Col>
+                  <Col xs={24} sm={5}>
+                    <Form.Item
+                      name={["wechatContacts", contact.id, "advanced"]}
+                      style={{ margin: 0 }}
+                    >
+                      <Input
+                        placeholder="高级搜索"
+                        suffix={<SearchOutlined style={{ color: "#bfbfbf" }} />}
+                      />
+                    </Form.Item>
+                  </Col>
+                </Row>
+              </div>
+            ))}
+          </Card>
 
           <Form.Item
             label="文章内容"

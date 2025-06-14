@@ -7,8 +7,11 @@ import React, {
 } from "react";
 import Quill from "quill";
 import "quill/dist/quill.snow.css";
+import data from "emoji-mart/data/google.json";
 import { Picker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
+import { Form, Input, Upload, Button } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 
 const QuillEmojiEditor = forwardRef(
   (
@@ -265,6 +268,7 @@ const QuillEmojiEditor = forwardRef(
 
     // 处理编辑器容器点击事件
     const handleEditorContainerClick = (e) => {
+      debugger;
       if (quillRef.current && !disabled) {
         // 检查点击的是否是工具栏或emoji选择器
         const isToolbarClick = e.target.closest(".ql-toolbar");
@@ -359,8 +363,10 @@ const QuillEmojiEditor = forwardRef(
                       flags: "旗帜",
                     },
                   }}
-                  showPreview={false}
-                  showSkinTones={false}
+                  backgroundImageFn={(set, sheetSize) => {
+                    return `/emoji.png`;
+                  }}
+                  tooltip={true}
                 />
               </div>
             </div>
@@ -384,3 +390,109 @@ const QuillEmojiEditor = forwardRef(
 QuillEmojiEditor.displayName = "QuillEmojiEditor";
 
 export default QuillEmojiEditor;
+
+// ====== 以下为表单示例，集成图片上传 ======
+const normFile = (e) => {
+  if (Array.isArray(e)) {
+    return e;
+  }
+  return e && e.fileList;
+};
+
+export const QuillFormWithUpload = () => {
+  const [fileList, setFileList] = useState([]);
+  const [editorValue, setEditorValue] = useState("");
+  const [previewImage, setPreviewImage] = useState("");
+  const [previewVisible, setPreviewVisible] = useState(false);
+
+  // 上传前转base64用于本地预览
+  const getBase64 = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new window.FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+
+  const handlePreview = async (file) => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj);
+    }
+    setPreviewImage(file.url || file.preview);
+    setPreviewVisible(true);
+  };
+
+  const onFinish = (values) => {
+    // 这里可以处理表单提交逻辑
+    console.log("表单提交内容：", values);
+  };
+
+  return (
+    <Form onFinish={onFinish} layout="vertical">
+      <Form.Item
+        label="标题"
+        name="title"
+        rules={[{ required: true, message: "请输入标题" }]}
+      >
+        <Input placeholder="请输入标题" />
+      </Form.Item>
+      <Form.Item
+        label="内容"
+        name="content"
+        rules={[{ required: true, message: "请输入内容" }]}
+      >
+        <QuillEmojiEditor value={editorValue} onChange={setEditorValue} />
+      </Form.Item>
+      <Form.Item
+        label="上传图片"
+        name="images"
+        valuePropName="fileList"
+        getValueFromEvent={normFile}
+      >
+        <Upload
+          listType="picture-card"
+          fileList={fileList}
+          onPreview={handlePreview}
+          onChange={({ fileList: newFileList }) => setFileList(newFileList)}
+          beforeUpload={() => false} // 阻止自动上传
+        >
+          {fileList.length >= 8 ? null : (
+            <div>
+              <PlusOutlined />
+              <div style={{ marginTop: 8 }}>上传</div>
+            </div>
+          )}
+        </Upload>
+        {/* 图片预览弹窗 */}
+        {previewVisible && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100vw",
+              height: "100vh",
+              background: "rgba(0,0,0,0.5)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 1000,
+            }}
+            onClick={() => setPreviewVisible(false)}
+          >
+            <img
+              alt="预览"
+              style={{ maxWidth: "80vw", maxHeight: "80vh" }}
+              src={previewImage}
+            />
+          </div>
+        )}
+      </Form.Item>
+      <Form.Item>
+        <Button type="primary" htmlType="submit">
+          提交
+        </Button>
+      </Form.Item>
+    </Form>
+  );
+};
