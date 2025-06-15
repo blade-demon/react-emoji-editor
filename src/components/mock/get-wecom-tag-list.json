@@ -1,0 +1,584 @@
+{
+  "data": {
+    "groupList": [
+      {
+        "id": "etzROiKwAA-6UZ1a3avKfXFVkMpEoRwA",
+        "name": "客户等级",
+        "order": 5,
+        "tagList": [
+          {
+            "id": "etzROiKwAAkmyy9ZjMSdPLZZlYDm6Yhw",
+            "name": "一般",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAHRg7_4b9l4UfZGeh81jW6w",
+            "name": "重要",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAQ2XA7_J7oydop6Zpb5F47w",
+            "name": "核心",
+            "order": 0
+          }
+        ]
+      },
+      {
+        "id": "etzROiKwAA6IdNYN4zztBkeDsmkOUDAg",
+        "name": "临时标签",
+        "order": 4,
+        "tagList": [
+          {
+            "id": "etzROiKwAA37rr8AJ4XqxRzuWhmG3dWQ",
+            "name": "CIMSLZ02_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAARzqwdLT6J1CrkTfSTkdw1g",
+            "name": "Ta_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAJ_69YudkqL2BxqBEPNBcYQ",
+            "name": "Ta_20250416_02",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA-T4UA_JMy1LvaxsLxzDHog",
+            "name": "Ta_20250416_03",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA3bzzHP0vyzMxZcDkHLZpqg",
+            "name": "123_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAm-WDGECFBQDR-qEQuK2qJg",
+            "name": "CAOYULIN_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAQJWPJUM4WwGG7OpNgHDmrg",
+            "name": "CAOYULIN02_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAu2G8mk0CXnV3BOqgp1WqMQ",
+            "name": "CAOYULIN03_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAH6y1MxlBdS0yBJmSmwJ_jw",
+            "name": "CAOYULIN04_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA6q_kVSMXXd8cPpT5f7ToMw",
+            "name": "CAOYULIN05_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAANXjFeaMZHtoi0m4cRMMDOA",
+            "name": "CAOYULIN06_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAApxpM8BvWLuw6UJXbTZ2CQw",
+            "name": "CAOYULIN07_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAkToVLBDMv6TzodJuyBdtDg",
+            "name": "CAOYULIN08_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAFtctmPudMWdi6flCvAG6_g",
+            "name": "CAOYULIN09_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAahmFMa1E5Ikd1ikNgzenMw",
+            "name": "FANWANYUE_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA4UOyIiHnx5M9l4eL3iqRvg",
+            "name": "FANWANYUE278_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA-yNaqxgPn9GYBSDhevFI4w",
+            "name": "GUYEJIA346_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAGPeiMXlfx1Y-3wAQ7pDKLw",
+            "name": "HATG101_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAsQHNSKrFQ8QwnbjxQ0VcKw",
+            "name": "HATG102_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAgyGSMr_wU6lGuWC-t5UgjQ",
+            "name": "HATG2_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAUuXbnLHMZ2dkfjVPavzYaQ",
+            "name": "HATG201_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAdjqpQZ9MlwcZT9DhvW8VTA",
+            "name": "HATG3_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAwjIzNbvSh6cokQ8k92mWwg",
+            "name": "LINLILI908_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAxz11Y5XLHMz4uf7Kb_eEJQ",
+            "name": "TQ1_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAARYF2qCylgDQq_C5jXgLc8A",
+            "name": "TQ101_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAtmj-fdekInIlgVKZQqe3dA",
+            "name": "TQ102_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAVAVqsXx-mnVdeN4f6fF6Nw",
+            "name": "TQ2_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAkUgWaqv175PwtEF_V8qEeg",
+            "name": "TQ3_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA5lJj0Dp72tT644AA4ywW7Q",
+            "name": "XIAOSHANSHAN991_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAn5ofb9DHuaiBJvfow9mfEA",
+            "name": "XURONGRONG047_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA6YOU8rXABsOctin9On0vuA",
+            "name": "XUZIWEI416_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAagBU9JvSsZnpHz5Gq3biRQ",
+            "name": "YANGXIN809_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAApak_AvyeaIVpr6mYw3-daQ",
+            "name": "YFDTG101_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAdGsuJryNaE8QJNVlUd49Fg",
+            "name": "YFDTG2_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAaEV0QQePKb7yOdo0KepwBg",
+            "name": "YFDTG3_20250416_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAXbY7N4R0lihaRheKA7KNPA",
+            "name": "FANWANYUE278_20250312_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAApVR4x1JCU85oo1RC0TGInQ",
+            "name": "CAOYULIN_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAQAQnf5MUNzw3HKkUFOx9Pw",
+            "name": "CAOYULIN02_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAe_76NSUY6cZu3Ci_fktD6g",
+            "name": "CAOYULIN03_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAR7O2Z_9i3YZqwd2z4wvDgg",
+            "name": "CAOYULIN04_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAACgXyLrp3URTBa208KIg3zw",
+            "name": "CAOYULIN05_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAHX7nfsQ8XIks3OkYyBbTdA",
+            "name": "CAOYULIN06_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAADX-1tz07cYBiPn5zaQrvXQ",
+            "name": "CAOYULIN07_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA4x3_f2gUX8KZUdF8e6JxOg",
+            "name": "CAOYULIN08_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAATr7AT6-GWBoqcLlTAO31ww",
+            "name": "CAOYULIN09_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAiJmspaI2117JTH8COb191g",
+            "name": "CIMSLZ02_20250516_02",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAHMavnVdRk5n1IQpatovM5g",
+            "name": "FANWANYUE_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAiWm0Qd5frEdgDz_ylHaylw",
+            "name": "FANWANYUE278_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA_CO456_Z5lXpx7N20ufrSQ",
+            "name": "GUYEJIA346_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAtQEO24tnVE08AQ8patVHfA",
+            "name": "HATG101_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAljvWnkdeefzy7q1YloU0KQ",
+            "name": "HATG102_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAYyPAz2TEj_ZGqiNjV-DYvg",
+            "name": "HATG2_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA7u9bE8XEUaGZGIHhP8YuDA",
+            "name": "HATG201_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAaLinARv_ZoOpkW5KagsTAA",
+            "name": "HATG3_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA13E_TtgUROkjobRQdnvF6Q",
+            "name": "LINLILI908_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAmo0rA-RUKIzEYjMIi_xCUg",
+            "name": "TQ1_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAJzfW68cY5ptQVvM-irpAXw",
+            "name": "TQ101_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA4vpjIQxO2kDxe5jTQJRIrw",
+            "name": "TQ102_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA_Jgus0BNEKlRrPbVoMo0_w",
+            "name": "TQ2_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAASPdKjAz32i-0z2dyTrewog",
+            "name": "TQ3_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAADCZOLCIBvgNw2ng1LTMXhg",
+            "name": "XIAOSHANSHAN991_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA9HM6bty8cMTy0NexRy5ucA",
+            "name": "XURONGRONG047_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAQoBD0KclqGzetA1Y9F1ASQ",
+            "name": "XUZIWEI416_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAHxrZ59GfOvZ08Of_uP5AuA",
+            "name": "YANGXIN809_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA7b_yPg_ckFun4qVDMqpbWw",
+            "name": "YFDTG101_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAbK0fu36LHqP5fQTkHcLkUA",
+            "name": "YFDTG2_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAbjlTbBLEYu4EzaEtJhxyfA",
+            "name": "YFDTG3_20250516_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAQMcGXjE-r9z4sYcVXm9fUg",
+            "name": "CIMSLZ02_20250516_03",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAACvlgJzhipEDsfSf6AF5_Ag",
+            "name": "CAOYULIN_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAA7Okx-bYdO4jjqlf_g2E7w",
+            "name": "CAOYULIN02_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAXhz_orNb-6w-nfhCnHYUHA",
+            "name": "CAOYULIN03_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAeYohwx_OFuIEu1MDB_k7wg",
+            "name": "CAOYULIN04_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAkUN8dSebS3qL-uYfseiHow",
+            "name": "CAOYULIN05_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAwmffBgO7zEQBDbeUJMXn1g",
+            "name": "CAOYULIN06_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA5R_r9ma-YzF6Vp8KbwhoWA",
+            "name": "CAOYULIN07_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAT1zkP6YmlffX775twE-1Kg",
+            "name": "CAOYULIN08_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAVu4KjAaCAjFh00Qlxeis6g",
+            "name": "CAOYULIN09_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAfuhrr7YcGxCMCbTfW8uoMw",
+            "name": "CIMSLZ02_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAlABY3rXIovBv9JRO5KUO3w",
+            "name": "FANWANYUE_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAANpZOL4HMhLbI-CpTALZwYQ",
+            "name": "FANWANYUE278_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAu_gq_g-Sr6Sfo155VSBChA",
+            "name": "GUYEJIA346_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAE_a7MnmGCzrxT0qTd-QBng",
+            "name": "HATG101_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAkKP-42mdW6KagOUlo6jNvw",
+            "name": "HATG102_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAATN-Q3g7Ow8dQ1lrt-BlmXw",
+            "name": "HATG2_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAA4OkCiPSB631_BfN-4pj-vQ",
+            "name": "HATG201_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAALzuag0tQGPt8wFJuu-kYkQ",
+            "name": "HATG3_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAPNcXuvhPmaG-zuFLiUQvYA",
+            "name": "LINLILI908_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAArOJk-JRoswlRV0_YJxakIQ",
+            "name": "TQ1_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAscfGjKqEFI8dtNhB3aJ3Vw",
+            "name": "TQ101_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAQ6hvutGSWXmvlAg_siEyEg",
+            "name": "TQ102_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAPiNcRRsOyFHPiyh6a_-DEA",
+            "name": "TQ2_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAho8X7FOv6dXFXdDrmlx2gg",
+            "name": "TQ3_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAATs3dD8sw8dwc3aKV2SZZWg",
+            "name": "XIAOSHANSHAN991_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAWedfaQ1wiY7o475pEAqhqw",
+            "name": "XURONGRONG047_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAIPTvKOJ6APQeRgx47MsWRg",
+            "name": "XUZIWEI416_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAV8TmPU34WwFw19Am__6mXw",
+            "name": "YANGXIN809_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAMj9Q2kUGbdo-AMdF5CuSXg",
+            "name": "YFDTG101_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAmz2rDg0xrCHqsf9m3UDgNg",
+            "name": "YFDTG2_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAfXxY5lqbByLB7XoIOQkNoQ",
+            "name": "YFDTG3_20250519_01",
+            "order": 0
+          },
+          {
+            "id": "etzROiKwAAbSrrebI3J8fYiNseLbMy9w",
+            "name": "CIMSLZ02_20250416_01",
+            "order": 0
+          }
+        ]
+      },
+      {
+        "id": "etzROiKwAAH_Iv2cxbH5l0Z8Z3EbqDsg",
+        "name": "活码sop标签组",
+        "order": 3,
+        "tagList": [
+          {
+            "id": "etzROiKwAAtUuPc36qA7IkCskkBdAWLg",
+            "name": "活码sop测试标签1",
+            "order": 2
+          },
+          {
+            "id": "etzROiKwAAlHwg2bNlPZArQEzw750ZnQ",
+            "name": "活码sop测试标签2",
+            "order": 1
+          }
+        ]
+      },
+      {
+        "id": "etzROiKwAAWhX8qzJIJy7aTIEzBr9NkA",
+        "name": "其他标签",
+        "order": 2,
+        "tagList": [
+          {
+            "id": "etzROiKwAAP5REO24Rh38FGAYyNRqUCA",
+            "name": "其他标签1",
+            "order": 0
+          }
+        ]
+      },
+      {
+        "id": "etzROiKwAAlYaBbdx4-pCVbMd4Py2IDA",
+        "name": "新增标签拖动",
+        "order": 1,
+        "tagList": [
+          {
+            "id": "etzROiKwAAlVE2krF6khOblI1HtqbxfA",
+            "name": "B",
+            "order": 2
+          },
+          {
+            "id": "etzROiKwAAgmDljQZ-9cAf73MlEcmxfg",
+            "name": "A",
+            "order": 1
+          }
+        ]
+      }
+    ]
+  },
+  "res_code": "0",
+  "res_msg": "成功",
+  "code": "0000"
+}

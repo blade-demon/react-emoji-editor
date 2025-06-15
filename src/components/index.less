@@ -1,0 +1,232 @@
+// 定义Ant Design颜色变量
+@danger-color: #ff4d4f;
+@success-color: #52c41a;
+
+.mr8 {
+  margin-right: 8px;
+}
+
+.page-code-config {
+  background: #fff;
+  padding: 10px 32px 50px;
+
+  > h2 {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+
+    > span {
+      color: @danger-color;
+    }
+  }
+
+  .config-form {
+    .ant-form-item-label {
+      white-space: pre-wrap;
+
+      > label {
+        display: block;
+        height: auto;
+        text-align: left;
+      }
+    }
+
+    .required > .ant-form-item-label ::before {
+      display: inline-block;
+      margin-right: 4px;
+      color: #ff4d4f;
+      font-size: 14px;
+      font-family: SimSun, sans-serif;
+      line-height: 1;
+      content: "*";
+    }
+  }
+
+  .config-form-list-space {
+    border: 1px solid #d9d9d9;
+    margin: 16px 0;
+    padding: 16px;
+    border-radius: 6px;
+    background: #fafafa;
+    transition: border-color 0.3s;
+
+    // Space组件本身的样式设置
+    &.ant-space {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      width: 100%;
+    }
+
+    // 第一行：操作按钮 + 表单项的水平布局
+    .first-row {
+      display: flex !important;
+      align-items: flex-start !important;
+      flex-wrap: nowrap !important;
+      margin-bottom: 16px;
+      width: 100%;
+      min-height: 50px;
+
+      // 操作按钮样式
+      .anticon-plus-circle,
+      .anticon-minus-circle {
+        font-size: 24px;
+        margin-right: 12px;
+        align-self: center;
+        flex-shrink: 0;
+        cursor: pointer;
+      }
+
+      .anticon-plus-circle {
+        color: @success-color;
+      }
+
+      .anticon-minus-circle {
+        color: @danger-color;
+      }
+
+      // 主要表单项水平排列
+      .ant-form-item {
+        flex: 1;
+        min-width: 0;
+        margin-right: 8px;
+        margin-bottom: 0;
+
+        .ant-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .ant-form-item-label {
+          text-align: left;
+          white-space: normal;
+          word-wrap: break-word;
+          padding-right: 0;
+          padding-bottom: 4px;
+          width: 100% !important;
+          max-width: none !important;
+
+          > label {
+            width: 100%;
+            text-align: left;
+            line-height: 1.2;
+          }
+        }
+
+        .ant-form-item-control {
+          width: 100%;
+          max-width: none;
+        }
+      }
+    }
+
+    // 单独行表单项的样式（添加企微标签、添加欢迎语）
+    .ant-space-item:not(:first-child) {
+      width: 100%;
+      padding: 10px 0 10px 75px;
+      // border-top: 1px solid #f0f0f0;
+
+      &:first-of-type {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .ant-form-item {
+        width: 100%;
+        margin-bottom: 0;
+
+        .ant-row {
+          display: flex;
+          align-items: flex-start;
+        }
+
+        .ant-form-item-label {
+          width: 120px !important;
+          text-align: left !important;
+          padding-right: 8px;
+          flex-shrink: 0;
+
+          > label {
+            width: 100%;
+            text-align: left;
+            font-weight: normal;
+            color: rgba(0, 0, 0, 0.85);
+            line-height: 1.5715;
+          }
+        }
+
+        .ant-form-item-control {
+          flex: 1;
+          max-width: none;
+          min-width: 0;
+
+          .ant-form-item-control-input {
+            min-height: 32px;
+            display: flex;
+            align-items: center;
+          }
+
+          // 确保按钮组件的样式一致性
+          .ant-btn {
+            height: 32px;
+            padding: 4px 15px;
+            font-size: 14px;
+            border-radius: 6px;
+            line-height: 1.5715;
+          }
+        }
+      }
+    }
+  }
+
+  .other-rules-space {
+    width: 100%;
+
+    > .ant-space-item {
+      flex: 1;
+    }
+  }
+
+  .modal-config {
+    > .ant-form-item {
+      height: 70px;
+
+      > .ant-form-item-label {
+        flex: 0 0 28%;
+      }
+    }
+  }
+}
+
+.ant-modal-confirm-content {
+  word-break: break-all;
+}
+
+// extra-container 样式，让内部元素换行展示
+.extra-container {
+  // display: flex;
+  // flex-direction: column;
+  // width: 100%;
+  // margin-top: 16px;
+  // padding: 12px;
+  // background: #fafafa;
+  // border-radius: 6px;
+  // border: 1px solid #e8e8e8;
+
+  .ant-form-item {
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

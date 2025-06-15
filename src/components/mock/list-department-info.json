@@ -1,0 +1,44 @@
+{
+  "data": {
+    "departmentInfoList": [
+      {
+        "departmentId": 1,
+        "departmentName": "陆基金验证"
+      },
+      {
+        "departmentId": 2,
+        "departmentName": "陆基金测试部门"
+      },
+      {
+        "departmentId": 3,
+        "departmentName": "陆基金测试部门2"
+      },
+      {
+        "departmentId": 4
+      },
+      {
+        "departmentId": 5,
+        "departmentName": "福利官部门"
+      },
+      {
+        "departmentId": 6,
+        "departmentName": "福利官"
+      },
+      {
+        "departmentId": 7,
+        "departmentName": "专员部门7"
+      },
+      {
+        "departmentId": 8,
+        "departmentName": "专员部门8"
+      },
+      {
+        "departmentId": 9,
+        "departmentName": "专员部门9"
+      }
+    ]
+  },
+  "res_code": "0",
+  "res_msg": "成功",
+  "code": "0000"
+}

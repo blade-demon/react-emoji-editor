@@ -1,0 +1,43 @@
+{
+  "data": [
+    {
+      "userId": "FANWANYUE278",
+      "userName": "范婉越"
+    },
+    {
+      "userId": "XURONGRONG047",
+      "userName": "许荣荣"
+    },
+    {
+      "userId": "LINLILI908",
+      "userName": "林莉莉"
+    },
+    {
+      "userId": "CIMSLZ02",
+      "userName": "CIMS离职测试"
+    },
+    {
+      "userId": "HATG2",
+      "userName": "Leah"
+    },
+    {
+      "userId": "BaLiShuiDaDao",
+      "userName": "张杨"
+    },
+    {
+      "userId": "Ta",
+      "userName": "肖杉杉"
+    },
+    {
+      "userId": "SunJieYun",
+      "userName": "孙洁芸"
+    },
+    {
+      "userId": "joker",
+      "userName": "杨鑫"
+    }
+  ],
+  "res_code": "0",
+  "res_msg": "成功",
+  "code": "0000"
+}

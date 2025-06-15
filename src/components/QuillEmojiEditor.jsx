@@ -268,7 +268,6 @@ const QuillEmojiEditor = forwardRef(
 
     // 处理编辑器容器点击事件
     const handleEditorContainerClick = (e) => {
-      debugger;
       if (quillRef.current && !disabled) {
         // 检查点击的是否是工具栏或emoji选择器
         const isToolbarClick = e.target.closest(".ql-toolbar");
